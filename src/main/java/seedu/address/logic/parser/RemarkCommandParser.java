@@ -1,18 +1,28 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Remark;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
+/**
+ * Parses input arguments and creates a new {@code RemarkCommand} object.
+ * Implements the {@code Parser} interface for parsing remark-related commands.
+ */
 public class RemarkCommandParser implements Parser<RemarkCommand> {
 
+    /**
+     * Parses the given {@code args} and returns a {@code RemarkCommand} object for execution.
+     *
+     * @param args User input representing the arguments for the RemarkCommand.
+     * @return A RemarkCommand object to execute the command.
+     * @throws ParseException If the user input does not conform to the expected format.
+     */
     public RemarkCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args,
