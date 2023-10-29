@@ -37,8 +37,9 @@ public class Doctor extends Person {
      *
      * @param appointment The Patient object representing the individual to be added.
      */
-    public void addAppointment(Appointment appointment) {
+    public Doctor addAppointment(Appointment appointment) {
         this.appointments.add(appointment);
+        return this;
     }
 
     /**
