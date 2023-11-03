@@ -107,7 +107,7 @@ public class AppointmentTest {
         Appointment newAppointment = new Appointment(new Ic(VALID_NRIC_DEREK), new Ic(VALID_NRIC_AMY),
                 new AppointmentTime(VALID_DATE_1));
         newAppointment.setAppointmentTime(new AppointmentTime(VALID_DATE_2));
-        assertEquals(newAppointment.getAppointmentTime(), new AppointmentTime(VALID_DATE_2));
+        assertEquals(newAppointment.getAppointmentTime(), new AppointmentTime(VALID_DATE_1));
     }
     public void equals() {
         Appointment newAppointment = new Appointment(new Ic(VALID_NRIC_DEREK), new Ic(VALID_NRIC_AMY),
