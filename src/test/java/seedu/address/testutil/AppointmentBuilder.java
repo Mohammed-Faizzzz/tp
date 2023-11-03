@@ -4,8 +4,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NRIC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NRIC_DEREK;
 
+import java.time.LocalDateTime;
+
 import seedu.address.model.appointment.Appointment;
-import seedu.address.model.appointment.AppointmentTime;
 import seedu.address.model.person.Ic;
 
 
@@ -15,11 +16,10 @@ import seedu.address.model.person.Ic;
 public class AppointmentBuilder {
     public static final Ic DEFAULT_DOCTOR_IC = new Ic(VALID_NRIC_DEREK);
     public static final Ic DEFAULT_PATIENT_IC = new Ic(VALID_NRIC_BOB);
-    public static final AppointmentTime DEFAULT_APPT_TIME = new AppointmentTime(VALID_DATE_1);
+    public static final LocalDateTime DEFAULT_APPT_TIME = VALID_DATE_1;
     private Ic doctorIc;
     private Ic patientIc;
-    private AppointmentTime appointmentTime;
-    private String status;
+    private LocalDateTime appointmentTime;
 
     /**
      * Constructor for the PersonBuilder class that initialises
@@ -29,7 +29,6 @@ public class AppointmentBuilder {
         doctorIc = DEFAULT_DOCTOR_IC;
         patientIc = DEFAULT_PATIENT_IC;
         appointmentTime = DEFAULT_APPT_TIME;
-        status = "Scheduled";
     }
 
     /**
@@ -39,7 +38,6 @@ public class AppointmentBuilder {
         this.doctorIc = appointmentToCopy.getDoctor();
         this.patientIc = appointmentToCopy.getPatient();
         this.appointmentTime = appointmentToCopy.getAppointmentTime();
-        this.status = appointmentToCopy.getStatus();
     }
 
     /**
@@ -61,13 +59,13 @@ public class AppointmentBuilder {
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
-    public AppointmentBuilder withAppointmentTime(AppointmentTime appointmentTime) {
+    public AppointmentBuilder withAppointmentTime(LocalDateTime appointmentTime) {
         this.appointmentTime = appointmentTime;
         return this;
     }
 
     public Appointment build() {
-        return new Appointment(doctorIc, patientIc, appointmentTime, status);
+        return new Appointment(doctorIc, patientIc, appointmentTime);
     }
 
 }

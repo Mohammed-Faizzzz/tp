@@ -49,7 +49,6 @@ public class Appointment {
         this.doctorIc = doctorIc;
         this.patientIc = patientIc;
         this.appointmentTime = appointmentTime;
-        this.status = status;
     }
 
     public AppointmentTime getAppointmentTime() {
